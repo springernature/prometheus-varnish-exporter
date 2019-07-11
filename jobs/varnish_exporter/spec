@@ -1,0 +1,13 @@
+---
+name: varnish_exporter
+
+packages:
+  - varnish_exporter
+
+templates:
+  bin/varnish_exporter_ctl: bin/varnish_exporter_ctl
+
+properties:
+  varnish_package_path:
+    description: "Path under which varnishstat is installed"
+    default: "/var/vcap/packages/varnish"

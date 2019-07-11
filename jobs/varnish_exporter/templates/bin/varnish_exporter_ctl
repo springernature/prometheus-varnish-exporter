@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+set -eu
+
+RUN_DIR=/var/vcap/sys/run/varnish_exporter
+LOG_DIR=/var/vcap/sys/log/varnish_exporter
+TMP_DIR=/var/vcap/sys/tmp/varnish_exporter
+STORE_DIR=/var/vcap/store/varnish_exporter
+mkdir -p ${RUN_DIR} ${LOG_DIR} ${TMP_DIR} ${STORE_DIR}
+
+PIDFILE=${RUN_DIR}/varnish_exporter.pid
+
+source /var/vcap/packages/varnish_exporter/common/utils.sh
+exec 1>> ${LOG_DIR}/$(basename "$0").stdout.log
+exec 2>> ${LOG_DIR}/$(basename "$0").stderr.log
+export PATH=/var/vcap/packages/varnish_exporter/bin:<%= p('varnish_package_path') %>/bin${PATH}
+
+case $1 in
+  start)
+    pid_guard ${PIDFILE} "varnish_exporter"
+    echo $$ > ${PIDFILE}
+
+    exec varnish_exporter -no-exit \
+      >>  ${LOG_DIR}/varnish_exporter.stdout.log \
+      2>> ${LOG_DIR}/varnish_exporter.stderr.log
+    ;;
+
+  stop)
+    kill_and_wait ${PIDFILE}
+    ;;
+
+  *)
+    echo "Usage: $0 {start|stop}"
+    exit 1
+    ;;
+
+esac
+exit 0

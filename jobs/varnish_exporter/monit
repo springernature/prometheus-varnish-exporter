@@ -1,0 +1,5 @@
+check process varnish_exporter
+  with pidfile /var/vcap/sys/run/varnish_exporter/varnish_exporter.pid
+  start program "/var/vcap/jobs/varnish_exporter/bin/varnish_exporter_ctl start"
+  stop program "/var/vcap/jobs/varnish_exporter/bin/varnish_exporter_ctl stop"
+  group vcap
