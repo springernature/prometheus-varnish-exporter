@@ -13,7 +13,7 @@ PIDFILE=${RUN_DIR}/varnish_exporter.pid
 source /var/vcap/packages/varnish_exporter/common/utils.sh
 exec 1>> ${LOG_DIR}/$(basename "$0").stdout.log
 exec 2>> ${LOG_DIR}/$(basename "$0").stderr.log
-export PATH=/var/vcap/packages/varnish_exporter/bin:<%= p('varnish_package_path') %>/bin${PATH}
+export PATH=/var/vcap/packages/varnish_exporter/bin:<%= p('varnish_package_path') %>/bin:${PATH}
 
 case $1 in
   start)
