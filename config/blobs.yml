@@ -1,3 +1,3 @@
-varnish_exporter/prometheus_varnish_exporter-1.5.linux-amd64.tar.gz:
-  size: 5775354
-  sha: 7b9e01590601b35f6f4a929574df4a3a064294d9
+varnish_exporter/prometheus_varnish_exporter-1.6.1.linux-amd64.tar.gz:
+  size: 5795795
+  sha: sha256:510e89628ca46da6f2e54618e2e6b68144cb034445024aa93c45d36ab20e16d3

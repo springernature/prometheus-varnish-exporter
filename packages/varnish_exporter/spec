@@ -3,4 +3,4 @@ name: varnish_exporter
 
 files:
   - common/utils.sh
-  - varnish_exporter/prometheus_varnish_exporter-1.5.linux-amd64.tar.gz
+  - varnish_exporter/prometheus_varnish_exporter-1.6.1.linux-amd64.tar.gz

@@ -2,7 +2,7 @@
 
 set -eux
 
-VARNISH_EXPORTER_VERSION=1.5
+VARNISH_EXPORTER_VERSION=1.6.1
 
 # Copy common utils
 mkdir -p ${BOSH_INSTALL_TARGET}/common
